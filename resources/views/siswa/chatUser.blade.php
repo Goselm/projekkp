@@ -15,7 +15,7 @@
     <button onclick="sendMessage()">Send</button>
 
     <script>
-        const socket = io('http://localhost:3000');
+        const socket = io('http://103.127.138.139:3000');
 
         // Bergabung ke room pelanggan
         function joinCustomerRoom() {
