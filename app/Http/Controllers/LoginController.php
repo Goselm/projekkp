@@ -14,18 +14,14 @@ class LoginController extends Controller
     {
         return view('tampilan.login');
     }
-
     public function login(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
-    
         $credentials = $request->only('email', 'password');
-    
         $user = User::where('email', $credentials['email'])->first();
-    
         if ($user && Hash::check($credentials['password'], $user->password)) {
             if ($user->is_admin) {
                 Auth::login($user);
@@ -34,16 +30,12 @@ class LoginController extends Controller
                 return back()->withErrors(['email' => 'You do not have admin access.'])->withInput();
             }
         }
-    
         return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
     }
-
     public function dashboard()
     {
         return redirect()->route('kembali');
-        //return view('kembali');
     }
-
     public function logout()
     {
     Auth::logout();

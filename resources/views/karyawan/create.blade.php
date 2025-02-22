@@ -65,6 +65,21 @@
                     <span>Jadwal</span></a>
             </li>
 
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="pembayaran.pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Pembayaran</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="siswa.chatUser">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Chat User</span></a>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
             
 

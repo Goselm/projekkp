@@ -64,6 +64,22 @@
                     <i class="fas fa-book-open"></i>
                     <span>Jadwal</span></a>
             </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="pembayaran.pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Pembayaran</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="siswa.chatUser">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Chat User</span></a>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -174,6 +190,12 @@
                                 <div class="col-sm-10">
                                     <label for="grade" class="col-sm-2 col-form-label">Grade</label>
                                     <input type="number" class="form-control" name='grade' id="grade">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-sm-10">
+                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                    <input type="text" class="form-control" name='email' id="email">
                                 </div>
                             </div>
                             <div class="mb-3 row">

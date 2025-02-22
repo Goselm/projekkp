@@ -64,6 +64,22 @@
                     <i class="fas fa-book-open"></i>
                     <span>Jadwal</span></a>
             </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="pembayaran.pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Pembayaran</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="siswa.chatUser">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Chat User</span></a>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -168,6 +184,12 @@
                                 <label for="grade" class="col-sm-2 col-form-label">Grade</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" name='grade' id="grade" value="{{ $data->grade }}">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name='email' id="email" value="{{ $data->email }}">
                                 </div>
                             </div>
                             <div class="mb-3 row">

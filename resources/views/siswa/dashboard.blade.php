@@ -66,6 +66,22 @@
                     <span>Jadwal</span></a>
             </li>
 
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="pembayaran.pembayaran">
+                    <i class="fas fa-book-open"></i>
+                    <span>Pembayaran</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="siswa.chatUser">
+                    <i class="fas fa-book-open"></i>
+                    <span>Chat User</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -181,6 +197,7 @@
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Grade</th>
+                                            <th>Email</th>
                                             <th>School</th>
                                             <th>Action</th>
                                         </tr>
@@ -194,6 +211,7 @@
                                             <th scope="row">{{ $no++ }}</th>
                                             <td>{{ $row->nama }}</td>
                                             <td>{{ $row->grade }}</td>
+                                            <td>{{ $row->email }}</td>
                                             <td>{{ $row->school }}</td>
                                             <td>
                                                 <a href='/showdata/{{ $row->id }}' class="btn btn-warning btn-sm">Edit</a>

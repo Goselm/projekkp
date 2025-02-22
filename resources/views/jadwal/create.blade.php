@@ -76,6 +76,21 @@
                     <span>Jadwal</span></a>
             </li>
 
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="pembayaran.pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Pembayaran</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="siswa.chatUser">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Chat User</span></a>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
             
 
@@ -187,40 +202,37 @@
                                     <label for="karyawan" class="col-sm-2 col-form-label">Guru</label>
                                     {{-- <input type="text" class="form-control" name='karyawan' id="karyawan"> --}}
                                     <select class="form-control" id="karyawan" name="karyawan">
-                                        <option value='0'>Retrieving data...</option>
+                                    <script
+                                            src="https://code.jquery.com/jquery-3.7.1.min.js"
+                                            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+                                            crossorigin="anonymous"></script>
+                                        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+                                        <script>
+                                            $(document).ready(function (){
+                                                var karyawan = $('#karyawan');
+                                                $.ajax({
+                                                    url: "{{ url('get-karyawan') }}",
+                                                    type: "GET",
+                                                    beforeSend: function () {
+                                                        karyawan.addClass('loading');
+                                                    },
+                                                    success: function (data) {
+                                                        karyawan.removeClass('loading');
+                                                        karyawan.empty();
+                                                        data.forEach(function(value) {
+                                                            console.log('a');
+                                                            karyawan.append($("<option></option>").attr("value", value.name).text(value.name));
+                                                        });
+                                                        karyawan.select2();
+                                                    },
+                                                    complete: function () {
+                                                        karyawan.removeClass('loading');
+                                                    },
+                                                });
+                                            });
+                                        </script>
                                     </select>
                                 </div>
-                                <script
-                                    src="https://code.jquery.com/jquery-3.7.1.min.js"
-                                    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-                                    crossorigin="anonymous"></script>
-                                <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-                                <script>
-                                    async function myAsync () {
-                                    var karyawan = $('#karyawan');
-                                        $.ajax({
-                                            url: "{{ url('get-karyawan') }}",
-                                            type: "GET",
-                                            beforeSend: function () {
-                                                karyawan.addClass('loading');
-                                            },
-                                            success: function (data) {
-                                                karyawan.removeClass('loading');
-
-                                                karyawan.empty();
-                                                data.forEach(function(value) {
-                                                    karyawan.append($("<option></option>").attr("value", value.name).text(value.name));
-                                                });
-                                                karyawan.select2();
-
-                                            },
-                                            complete: function () {
-                                                karyawan.removeClass('loading');
-                                            },
-                                        });
-                                    }
-                                    myAsync();
-                                </script>
                             </div>
                         
                             <div class="mb-3 row">

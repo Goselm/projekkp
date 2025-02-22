@@ -59,6 +59,7 @@
                     <div class="dropdown-menu fade-down m-0">
                         <a href="tampilan.team" class="dropdown-item active">Our Team</a>
                         <a href="tampilan.testimonial" class="dropdown-item">Testimonial</a>
+                        <a href="belajar.view" class="dropdown-item">Pembelajaran</a>
                     </div>
                 </div>
                 <a href="tampilan.contact" class="nav-item nav-link">Contact</a>

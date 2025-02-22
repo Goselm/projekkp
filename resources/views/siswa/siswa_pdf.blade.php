@@ -18,6 +18,7 @@
 				<th>No</th>
 				<th>Name</th>
 				<th>Grade</th>
+				<th>Email</th>
 				<th>School</th>
 			</tr>
 		</thead>
@@ -28,6 +29,7 @@
 				<td>{{ $i++ }}</td>
 				<td>{{$siswa->nama}}</td>
 				<td>{{$siswa->grade}}</td>
+				<td>{{$siswa->email}}</td>
 				<td>{{$siswa->school}}</td>
 			</tr>
 			@endforeach

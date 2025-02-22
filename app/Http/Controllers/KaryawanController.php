@@ -22,11 +22,7 @@ class KaryawanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-
-        return view('karyawan.create');
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -37,41 +33,34 @@ class KaryawanController extends Controller
         $karyawans = Karyawan::all();
         return $karyawans;
     }
+    
     public function return()
     {        
         $karyawans = Karyawan::all();
         return view('karyawan.karyawan', compact('karyawans'));
     }
 
+    public function create()
+    {
+        return view('karyawan.create');
+    }
+
     public function store(Request $request)
     {
-        // Validate incoming data
         $validatedData = $request->validate([
             'name' => 'required|string|max:255', 
             'email' => 'required|string|max:255',
             'gaji'=> 'required|integer|min:1',   
-            // Add validation rules for other fields
         ]);
-
-        // Log a message to confirm redirection
         Log::info('Redirecting to tambahdata route with success message.');
-
         Karyawan::create($validatedData);
-
         return redirect()->route('create')->with('success', 'data berhasil ditambahkan');
-        //Karyawan::create($request->all());
-        //return redirect()->route('create')->with('success', 'data berhasil ditambahkan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
-    {
-        $karyawans = Karyawan::find($id);
-        //dd($data);
-        return view('karyawan.show', compact('karyawans'));
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -84,6 +73,14 @@ class KaryawanController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+    public function show($id)
+    {
+        $karyawans = Karyawan::find($id);
+        //dd($data);
+        return view('karyawan.show', compact('karyawans'));
+    }
+
     public function update(Request $request, string $id)
     {
         $karyawans =Karyawan::find($id);
@@ -102,7 +99,6 @@ class KaryawanController extends Controller
         $karyawans->delete();
         return redirect()->route('return')->with(['message'=> 'Successfully deleted!!']);
     }
-
     return redirect()->route('return')->with(['message'=> 'Wrong ID!!']);
     }
 

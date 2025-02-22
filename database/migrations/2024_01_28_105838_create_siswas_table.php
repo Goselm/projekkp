@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->integer('grade');
+            $table->string('email');
             $table->string('school');
             $table->timestamps();
         });

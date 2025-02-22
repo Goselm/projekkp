@@ -53,6 +53,9 @@
                     <div class="dropdown-menu fade-down m-0">
                         <a href="tampilan.team" class="dropdown-item">Our Team</a>
                         <a href="tampilan.testimonial" class="dropdown-item">Testimonial</a>
+                        <a href="tampilan.chat" class="dropdown-item">Chat</a>
+                        <a href="belajar.view" class="dropdown-item">Pembelajaran</a>
+                        <a href="tampilan.payment" class="dropdown-item">Bayar SPP</a>
                     </div>
                 </div>
                 <a href="tampilan.contact" class="nav-item nav-link">Contact</a>
@@ -181,7 +184,7 @@
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="tampilan.course">
+                            <a class="position-relative d-block overflow-hidden" href="tampilan.calistung">
                                 <img class="img-fluid" src="img/calistung1.jpeg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                     <h5 class="m-0">Calistung</h5>

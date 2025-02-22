@@ -17,6 +17,7 @@ class siswa extends Model
     protected $fillable = [
         'nama',
         'grade',
+        'email',
         'school'
     ];
 }
