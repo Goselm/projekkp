@@ -8,11 +8,11 @@
     <title>Payment</title>
 </head>
 <body>
-    <form id="payment-form">
+    <form action="{{ route('notifikasimasuk') }}" method="POST" id="payment-form">
         <input type="text" id="name" placeholder="Nama" required>
         <input type="email" id="email" placeholder="Email" required>
-        <input type="number" id="phone" placeholder="Nomor HP" required>
-        <input type="number" id="amount" placeholder="Jumlah Pembayaran" required>
+        <input type="number" id="nohp" placeholder="Nomor HP" required>
+        <input type="number" id="jumlah" placeholder="Jumlah Pembayaran" required>
         <button type="button" onclick="pay()">Bayar</button>
     </form>
 

@@ -81,6 +81,14 @@
                     <span>Chat User</span></a>
             </li>
 
+            <hr class="sidebar-divider">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('index') }}">
+                    <i class="fas fa-book-open"></i>
+                    <span>Status</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -182,6 +190,12 @@
                     <!-- DataTales Example -->
                     <div class="pb-3">
                         <a href="{{ route('pcreate') }}" class="btn btn-primary">+ Tambah Data</a>
+                    </div>
+                    <div class="pb-3">
+                        <a href="{{ route('google.redirect') }}" class="btn btn-primary">Buat Token</a>
+                    </div>
+                    <div class="pb-3">
+                        <a href="{{ route('send.email') }}" class="btn btn-primary">Kirim Email</a>
                     </div>
                     <div class="card shadow mb-4">
                         <div class="card-body">

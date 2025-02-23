@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Siswa</title>
+    <title>Status</title>
 
     <!-- Custom fonts for this template-->
     <link href={{ asset("vendor/fontawesome-free/css/all.min.css") }} rel="stylesheet" type="text/css">
@@ -41,7 +41,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="siswa.dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Siswa</span></a>
@@ -83,7 +83,7 @@
 
             <hr class="sidebar-divider">
             
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="status.status">
                     <i class="fas fa-book-open"></i>
                     <span>Status</span></a>
@@ -179,36 +179,34 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                 <!-- START FORM -->
-                    <form action="/updatedata/{{ $data->id }}" method="POST">
+
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <form action="{{ url('/masukdatastatus') }}" method="POST">
                         @csrf
                         <div class="my-3 p-3 bg-body rounded shadow-sm">
                             <div class="mb-3 row">
-                                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='nama' id="nama" value="{{ $data->nama }}">
+                                    <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                                    <input type="text" class="form-control" name='nama' id="nama">
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="grade" class="col-sm-2 col-form-label">Grade</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name='grade' id="grade" value="{{ $data->grade }}">
+                                    <label for="jumlah" class="col-sm-2 col-form-label">Jumlah</label>
+                                    <input type="number" class="form-control" name='jumlah' id="jumlah">
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='email' id="email" value="{{ $data->email }}">
+                                    <label for="status" class="col-sm-2 col-form-label">Status</label>
+                                    <input type="text" class="form-control" name='status' id="status">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
-                                <label for="school" class="col-sm-2 col-form-label">School</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='school' id="school" value="{{ $data->school }}">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
-                            </div>
+                            <button type="submit" class="btn btn-primary" name="submit">SIMPAN</button>
                         </div>
                     </form>
                 </div>

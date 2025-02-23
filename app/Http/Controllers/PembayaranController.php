@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\pembayaran;
+use App\Models\Notifikasi;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MidnightEmail;
 use Illuminate\Support\Facades\Log;
@@ -51,6 +52,11 @@ class PembayaranController extends Controller
     return response()->json(['message' => 'Semua email telah dikirim!']);
     }
 
+    public function stay(){
+        $data = pembayaran::all();
+        return view('pembayaran.pembayaran', compact('data'));
+    }
+
     public function tambahPembayaran(Request $request)
     {
         // Validate incoming data
@@ -79,7 +85,8 @@ class PembayaranController extends Controller
 
     public function showdatapembayaran($id){
         $data = pembayaran::find($id);
-        return view('pembayaran.show', compact('data'));}
+        return view('pembayaran.show', compact('data'));
+    }
 
     public function editpembayaran(Request $request, string $id){
         $data =pembayaran::find($id);
@@ -155,6 +162,5 @@ class PembayaranController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-
 
 }

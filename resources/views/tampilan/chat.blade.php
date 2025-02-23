@@ -103,7 +103,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-        const socket = io('http://103.127.138.139:3000');
+        const socket = io('https://103.127.138.139:3000');
         let sessionId = null;
 
         // Mendapatkan session ID dari server

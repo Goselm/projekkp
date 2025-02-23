@@ -22,7 +22,8 @@ class SiswaController extends Controller
     }
     
     public function tambahkan(){
-        return view('siswa.create');}
+        return view('siswa.create');
+    }
 
     public function masukdata(Request $request){
          $validatedData = $request->validate([

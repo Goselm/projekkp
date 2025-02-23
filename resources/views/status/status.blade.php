@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Siswa</title>
+    <title>Status</title>
 
     <!-- Custom fonts for this template-->
     <link href={{ asset("vendor/fontawesome-free/css/all.min.css") }} rel="stylesheet" type="text/css">
@@ -37,11 +37,12 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
+
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="siswa.dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Siswa</span></a>
@@ -56,9 +57,9 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Karyawan</span></a>
             </li>
-            <!-- Divider -->
+
             <hr class="sidebar-divider">
-            
+
             <li class="nav-item">
                 <a class="nav-link" href="jadwal.jadwal">
                     <i class="fas fa-book-open"></i>
@@ -69,33 +70,36 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="pembayaran.pembayaran">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-book-open"></i>
                     <span>Pembayaran</span></a>
-            </li>
-
-            <hr class="sidebar-divider">
-
-            <li class="nav-item">
-                <a class="nav-link" href="siswa.chatUser">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Chat User</span></a>
             </li>
 
             <hr class="sidebar-divider">
             
             <li class="nav-item">
-                <a class="nav-link" href="status.status">
+                <a class="nav-link" href="siswa.chatUser">
+                    <i class="fas fa-book-open"></i>
+                    <span>Chat User</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('index') }}">
                     <i class="fas fa-book-open"></i>
                     <span>Status</span></a>
             </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+
         </ul>
         <!-- End of Sidebar -->
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -176,46 +180,94 @@
 
                 </nav>
                 <!-- End of Topbar -->
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                <!-- START FORM -->
-                    <form action="/updatedata/{{ $data->id }}" method="POST">
-                        @csrf
-                        <div class="my-3 p-3 bg-body rounded shadow-sm">
-                            <div class="mb-3 row">
-                                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='nama' id="nama" value="{{ $data->nama }}">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="grade" class="col-sm-2 col-form-label">Grade</label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" name='grade' id="grade" value="{{ $data->grade }}">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='email' id="email" value="{{ $data->email }}">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="school" class="col-sm-2 col-form-label">School</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='school' id="school" value="{{ $data->school }}">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Data Status</h1>
+
+                    <!-- DataTales Example -->
+                    <div class="pb-3">
+                        <a href="{{ route('tambahdatastatus') }}" class="btn btn-primary">+ Tambah Data</a>
+                    </div>
+                    <div class="pb-3">
+                        <a href="/printpdfstatus" class="btn btn-primary" target="_blank">
+                            <span>Download PDF</span> </a>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nama</th>
+                                            <th>Jumlah</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $no =1;
+                                        @endphp
+                                        @foreach ($data as $row)
+                                        <tr>
+                                            <th scope="row">{{ $no++ }}</th>
+                                            <td>{{ $row->nama }}</td>
+                                            <td>{{ $row->jumlah }}</td>
+                                            <td>{{ $row->status }}</td>
+                                            <td>
+                                                <a href='/showdatastatus/{{ $row->id }}' class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="/hapusdatastatus/{{ $row->id }}" class="btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>  
+                                        @endforeach
+                                        
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </form>
+                    </div>
+
                 </div>
-                <!-- AKHIR FORM -->
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="tampilan.login">Logout</a>
+                </div>
             </div>
         </div>
     </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src={{ asset("vendor/jquery/jquery.min.js") }}></script>
     <script src={{ asset("vendor/bootstrap/js/bootstrap.bundle.min.js") }}></script>
@@ -232,5 +284,7 @@
     <!-- Page level custom scripts -->
     <script src={{ asset("js/demo/chart-area-demo.js") }}></script>
     <script src={{ asset("js/demo/chart-pie-demo.js") }}></script>
+
 </body>
+
 </html>
