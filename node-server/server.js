@@ -1,7 +1,7 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
-const { v4: uuidv4 } = require('uuid'); // Untuk membuat ID unik
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const server = http.createServer(app);
@@ -11,34 +11,48 @@ const io = new Server(server, {
     },
 });
 
+// Simpan sesi aktif
+let activeSessions = {};
+
 io.on('connection', (socket) => {
     console.log('User connected:', socket.id);
 
-    // Generate session ID untuk pelanggan
-    const sessionId = uuidv4();
-    socket.emit('session-id', sessionId); // Kirim session ID ke pelanggan
-    socket.join(sessionId); // Pelanggan bergabung ke room mereka
-    console.log(`User ${socket.id} joined session: ${sessionId}`);
+    // Terima session ID dari user (jika ada)
+    socket.on('register-session', (sessionId) => {
+        if (!sessionId) {
+            sessionId = uuidv4();
+        }
+        activeSessions[sessionId] = { socketId: socket.id };
+        socket.join(sessionId);
+        socket.emit('session-id', sessionId);
+        io.emit('active-sessions', Object.keys(activeSessions));
+        console.log(`User registered with session: ${sessionId}`);
+    });
 
-    // Pelanggan mengirim pesan
+    // Kirim pesan dari user
     socket.on('send-message', ({ sessionId, message }) => {
         console.log(`Customer message in session ${sessionId}: ${message}`);
         io.to(sessionId).emit('receive-message', { sender: 'Customer', message });
     });
 
-    // Agen bergabung ke room pelanggan
+    // Admin bergabung ke room user
     socket.on('join-customer-room', (sessionId) => {
         socket.join(sessionId);
-        console.log(`Agent ${socket.id} joined session: ${sessionId}`);
+        console.log(`Agent joined session: ${sessionId}`);
     });
 
-    // Agen mengirim pesan
+    // Admin mengirim pesan
     socket.on('send-agent-message', ({ sessionId, message }) => {
-        console.log(`Agent message to session ${sessionId}: ${message}`);
         io.to(sessionId).emit('receive-message', { sender: 'Agent', message });
     });
 
+    // Handle disconnect
     socket.on('disconnect', () => {
+        const sessionId = Object.keys(activeSessions).find(key => activeSessions[key].socketId === socket.id);
+        if (sessionId) {
+            delete activeSessions[sessionId];
+            io.emit('active-sessions', Object.keys(activeSessions));
+        }
         console.log('User disconnected:', socket.id);
     });
 });

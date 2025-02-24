@@ -25,7 +25,7 @@ Route::middleware(['web'])->group(function () {
 });
 Route::get('tampilan.login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('tampilan.login', [LoginController::class, 'login']);
-Route::get('siswa.dashboard', [LoginController::class, 'index']);
+Route::get('siswa.dashboard', [SiswaController::class, 'index']);
 
 //jadwal
 Route::get('/screate',[JadwalController::class, 'screate'])->name('screate');
