@@ -77,11 +77,18 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const videos = [
-                { title: "Algebra Basics", url: "https://www.youtube.com/embed/1" },
-                { title: "Trigonometry for Beginners", url: "https://www.youtube.com/embed/2" },
-                { title: "Calculus Introduction", url: "https://www.youtube.com/embed/3" }
+                { title: "Algebra Basics", url: "https://www.youtube.com/embed/NybHckSEQBI" },
+                { title: "Trigonometry for Beginners", url: "https://www.youtube.com/embed/PUB0TaZ7bhA" },
+                { title: "Calculus Introduction", url: "https://www.youtube.com/embed/WsQQvHm4lSw" },
+                { title: "Limits Introduction", url: "https://www.youtube.com/embed/YNstP0ESndU" },
+                { title: "Vectors", url: "https://www.youtube.com/embed/Ej3ZVxljJfo" },
+                { title: "Arithmetic Sequences and Arithmetic Series - Basic Introduction", url: "https://www.youtube.com/embed/XZJdyPkCxuE" },
+                { title: "Permutations and Combinations", url: "https://www.youtube.com/embed/0NAASclUm4k" },
+                { title: "Basic Concepts of Matrices ", url: "https://www.youtube.com/embed/T7I_C_lL75I" },
+                { title: "Linear Equations - Algebra", url: "https://www.youtube.com/embed/Ft2_QtXAnh8" },
+                { title: " Basic Probability", url: "https://www.youtube.com/embed/KzfWUEJjG18" },
             ];
-
+            
             function displayVideos(videoArray) {
                 const container = document.getElementById("video-list");
                 container.innerHTML = "";

@@ -76,9 +76,16 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const videos = [
-                { title: "Algebra Basics", url: "https://www.youtube.com/embed/1" },
-                { title: "Trigonometry for Beginners", url: "https://www.youtube.com/embed/2" },
-                { title: "Calculus Introduction", url: "https://www.youtube.com/embed/3" }
+                { title: "Vectors - Basic Introduction", url: "https://www.youtube.com/embed/EwSHKuSxX_8" },
+                { title: "Basic Introduction, Torque, Inertia, Conservation of Angular Momentum", url: "https://www.youtube.com/embed/WzjIMuf-yuo" },
+                { title: "Impulse and Momentum", url: "https://www.youtube.com/embed/FYKoU0sb9ks" },
+                { title: "Significant Figures", url: "https://www.youtube.com/embed/l2yuDvwYq5g" },
+                { title: "Newton's Law of Motion - First, Second & Third", url: "https://www.youtube.com/embed/g550H4e5FCY" },
+                { title: "Kinematics", url: "https://www.youtube.com/embed/ulXdXTkIkAM" },
+                { title: "Introduction to Projectile Motion", url: "https://www.youtube.com/embed/dUpcOfkFThI" },
+                { title: "Introduction to Inclined Planes", url: "https://www.youtube.com/embed/ufgY237M5KQ" },
+                { title: "Work and Kinetic Energy", url: "https://www.youtube.com/embed/MR8jQZLcHKM" },
+                { title: "Work, Energy, and Power Introduction", url: "https://www.youtube.com/embed/_MR1Dp8-F8w" },
             ];
 
             function displayVideos(videoArray) {

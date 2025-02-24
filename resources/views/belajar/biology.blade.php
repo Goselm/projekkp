@@ -76,10 +76,17 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const videos = [
-                { title: "Algebra Basics", url: "https://www.youtube.com/embed/1" },
-                { title: "Trigonometry for Beginners", url: "https://www.youtube.com/embed/2" },
-                { title: "Calculus Introduction", url: "https://www.youtube.com/embed/3" }
-            ];
+                { title: "Introduction to Biotechnology", url: "https://www.youtube.com/embed/RrTCjp2015M" },
+                { title: "Genetic Engineering", url: "https://www.youtube.com/embed/CfTnVx31pr0" },
+                { title: "Biotic - Abiotic Factors", url: "https://www.youtube.com/embed/0mjafH5pVLA" },
+                { title: "Food Chains & Predator Prey Cycles", url: "https://www.youtube.com/embed/NFTSm3D2xrM" },
+                { title: "Classification", url: "https://www.youtube.com/embed/HLnaIJm5wM4" },
+                { title: "Selective Breeding", url: "https://www.youtube.com/embed/3B4LEssKSLs" },
+                { title: "Meiosis", url: "https://www.youtube.com/embed/micUPynqx9k" },
+                { title: "Reproduction", url: "https://www.youtube.com/embed/LgLkt02Hl9s" },
+                { title: "Sexual & Asexual Reproduction", url: "https://www.youtube.com/embed/mtYCd2LAr_w" },
+                { title: "Adaptations", url: "https://www.youtube.com/embed/tC-u8xcZYSM" },
+            ];   
 
             function displayVideos(videoArray) {
                 const container = document.getElementById("video-list");

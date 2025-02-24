@@ -76,11 +76,18 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const videos = [
-                { title: "Algebra Basics", url: "https://www.youtube.com/embed/1" },
-                { title: "Trigonometry for Beginners", url: "https://www.youtube.com/embed/2" },
-                { title: "Calculus Introduction", url: "https://www.youtube.com/embed/3" }
+                { title: "Introduction to Ionic Bonding and Covalent Bonding", url: "https://www.youtube.com/embed/S_k0kr2eZSQ" },
+                { title: "Polar and Nonpolar Molecules", url: "https://www.youtube.com/embed/4ykSzYl_4vI" },
+                { title: "SPDF orbitals Explained - 4 Quantum Numbers, Electron Configuration, & Orbital Diagrams", url: "https://www.youtube.com/embed/CP35NuspGlk" },
+                { title: "The Periodic Table: Atomic Radius, Ionization Energy, and Electronegativity", url: "https://www.youtube.com/embed/hePb00CqvP0" },
+                { title: "Introduction to Balancing Chemical Equations", url: "https://www.youtube.com/embed/e_C-V5vJv80" },
+                { title: "VSEPR Theory - Basic Introduction", url: "https://www.youtube.com/embed/DBrq31w8vC4" },
+                { title: "Sigma and Pi Bonds Explained, Basic Introduction, Chemistry", url: "https://www.youtube.com/embed/pT8nrBrTOm4" },
+                { title: "Valence Bond Theory & Hybrid Atomic Orbitals", url: "https://www.youtube.com/embed/Vqx9a2aU99c" },
+                { title: "Avogadro's Number, The Mole, Grams, Atoms, Molar Mass Calculations", url: "https://www.youtube.com/embed/74-X94OP2XI" },
+                { title: "Oxidation and Reduction Reactions Basic", url: "https://www.youtube.com/embed/dF5lB7gRtcA" },
             ];
-
+https://youtu.be/CP35NuspGlk
             function displayVideos(videoArray) {
                 const container = document.getElementById("video-list");
                 container.innerHTML = "";
